@@ -1,0 +1,808 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background: #f4f1eb;
+  color: #171717;
+}
+
+button,
+input {
+  font-family: inherit;
+}
+
+/* =========================
+   APP
+========================= */
+
+.app {
+  min-height: 100vh;
+  background: #f4f1eb;
+}
+/* =========================
+   HEADER
+========================= */
+
+.hero {
+  background: #171717;
+  border-bottom: 4px solid #b88935;
+}
+
+.hero-inner {
+  max-width: 1180px;
+  margin: auto;
+  padding: 28px 24px;
+}
+
+.brand {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  text-align: center;
+}
+
+.logo {
+  width: 58px;
+  height: 58px;
+  background: #b88935;
+  color: #171717;
+  border-radius: 8px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 30px;
+}
+
+.brand h1 {
+  color: #ffffff;
+  font-size: 36px;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+  margin: 0;
+}
+
+.brand p {
+  color: #d7d7d7;
+  margin: 0;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+/* =========================
+   SEARCH HEADING
+========================= */
+
+.search-section {
+  position: relative;
+}
+
+.section-heading {
+  margin-bottom: 28px;
+}
+
+.eyebrow {
+  display: block;
+
+  margin-bottom: 8px;
+
+  color: #765416;
+
+  font-size: 12px;
+  font-weight: 900;
+
+  letter-spacing: 2px;
+}
+
+.section-heading h2 {
+  color: #111111;
+
+  font-size: 36px;
+  font-weight: 900;
+
+  margin-bottom: 8px;
+}
+
+.section-heading p {
+  color: #444444;
+
+  font-size: 15px;
+  font-weight: 600;
+}
+
+/* =========================
+   JOURNEY BOX
+========================= */
+
+.journey-box {
+  position: relative;
+
+  background: #ffffff;
+
+  border: 1px solid #d0c9bd;
+  border-radius: 12px;
+
+  padding: 30px;
+
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, 1fr)
+    48px
+    minmax(0, 1fr)
+    auto;
+
+  gap: 18px;
+
+  align-items: end;
+
+  box-shadow:
+    0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+/* =========================
+   STATION
+========================= */
+
+.station-wrapper {
+  position: relative;
+
+  min-width: 0;
+}
+
+.station-wrapper label {
+  display: block;
+
+  margin-bottom: 9px;
+
+  color: #1b1b1b;
+
+  font-size: 12px;
+  font-weight: 900;
+
+  letter-spacing: 1.5px;
+}
+
+.station-input {
+  height: 62px;
+
+  display: flex;
+  align-items: center;
+
+  background: #faf9f6;
+
+  border: 2px solid #c9c2b6;
+
+  border-radius: 8px;
+
+  transition: all 0.2s ease;
+}
+
+.station-input:focus-within {
+  background: #ffffff;
+
+  border-color: #b88935;
+
+  box-shadow:
+    0 0 0 4px rgba(184, 137, 53, 0.12);
+}
+
+.station-icon {
+  width: 46px;
+
+  flex-shrink: 0;
+
+  text-align: center;
+
+  color: #171717;
+
+  font-size: 13px;
+}
+
+.station-icon.destination {
+  color: #b88935;
+}
+
+.station-input input {
+  width: 100%;
+  height: 100%;
+
+  border: none;
+  outline: none;
+
+  background: transparent;
+
+  color: #111111;
+
+  font-size: 17px;
+  font-weight: 800;
+
+  padding-right: 42px;
+}
+
+.station-input input::placeholder {
+  color: #666666;
+
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.input-loading {
+  position: absolute;
+
+  right: 16px;
+
+  color: #765416;
+
+  font-size: 16px;
+  font-weight: 900;
+}
+
+/* =========================
+   DROPDOWN
+========================= */
+
+.dropdown {
+  position: absolute;
+
+  left: 0;
+  right: 0;
+
+  top: calc(100% + 8px);
+
+  max-height: 360px;
+
+  overflow-y: auto;
+
+  background: #ffffff;
+
+  border: 1px solid #c7c0b4;
+
+  border-radius: 9px;
+
+  box-shadow:
+    0 15px 35px rgba(0, 0, 0, 0.18);
+
+  z-index: 9999;
+}
+
+.station-option {
+  width: 100%;
+
+  display: block;
+
+  padding: 15px 17px;
+
+  background: #ffffff;
+
+  border: none;
+
+  border-bottom: 1px solid #e5e1da;
+
+  text-align: left;
+
+  cursor: pointer;
+
+  transition: background 0.12s ease;
+}
+
+.station-option:last-child {
+  border-bottom: none;
+}
+
+.station-option:hover {
+  background: #f4efe6;
+}
+
+.station-main {
+  display: flex;
+
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 15px;
+}
+
+.station-main strong {
+  color: #111111;
+
+  font-size: 15px;
+  font-weight: 900;
+}
+
+.station-code {
+  flex-shrink: 0;
+
+  padding: 5px 9px;
+
+  background: #eee8dc;
+
+  border-radius: 5px;
+
+  color: #5b4318;
+
+  font-size: 12px;
+  font-weight: 900;
+}
+
+.station-city {
+  margin-top: 5px;
+
+  color: #444444;
+
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.active-dot {
+  margin-left: 8px;
+
+  color: #28733d;
+
+  font-size: 11px;
+  font-weight: 800;
+}
+
+.dropdown-loading {
+  padding: 18px;
+
+  color: #333333;
+
+  font-size: 14px;
+  font-weight: 800;
+
+  text-align: center;
+}
+
+/* =========================
+   SWAP
+========================= */
+
+.swap-button {
+  width: 44px;
+  height: 44px;
+
+  margin-bottom: 9px;
+
+  border: 1px solid #c7c0b4;
+
+  border-radius: 50%;
+
+  background: #f7f4ee;
+
+  color: #171717;
+
+  font-size: 22px;
+  font-weight: 900;
+
+  cursor: pointer;
+
+  transition: all 0.2s ease;
+}
+
+.swap-button:hover {
+  background: #111111;
+  color: #ffffff;
+
+  border-color: #111111;
+}
+
+/* =========================
+   SEARCH BUTTON
+========================= */
+
+.search-button {
+  height: 62px;
+
+  padding: 0 26px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 14px;
+
+  border: none;
+
+  border-radius: 8px;
+
+  background: #111111;
+
+  color: #ffffff;
+
+  font-size: 15px;
+  font-weight: 900;
+
+  white-space: nowrap;
+
+  cursor: pointer;
+
+  transition: all 0.2s ease;
+}
+
+.search-button:hover:not(:disabled) {
+  background: #765416;
+}
+
+.search-button:disabled {
+  opacity: 0.65;
+
+  cursor: not-allowed;
+}
+
+.spinner {
+  width: 16px;
+  height: 16px;
+
+  border: 2px solid rgba(255, 255, 255, 0.4);
+
+  border-top-color: #ffffff;
+
+  border-radius: 50%;
+
+  animation: spin 0.7s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* =========================
+   ERROR
+========================= */
+
+.error-box {
+  margin-top: 18px;
+
+  padding: 15px 18px;
+
+  background: #fff2f0;
+
+  border: 1px solid #dfaaa3;
+
+  border-left: 4px solid #a5362d;
+
+  border-radius: 7px;
+
+  color: #7c241d;
+
+  font-size: 14px;
+  font-weight: 800;
+}
+
+/* =========================
+   RESULTS
+========================= */
+
+.results-section {
+  margin-top: 60px;
+}
+
+.results-heading {
+  display: flex;
+
+  align-items: flex-end;
+  justify-content: space-between;
+
+  margin-bottom: 22px;
+}
+
+.results-heading h2 {
+  color: #111111;
+
+  font-size: 29px;
+  font-weight: 900;
+}
+
+.result-count {
+  padding: 8px 13px;
+
+  background: #e7dfd0;
+
+  color: #5b4318;
+
+  border-radius: 5px;
+
+  font-size: 13px;
+  font-weight: 900;
+}
+
+/* =========================
+   TRAIN LIST
+========================= */
+
+.train-list {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 14px;
+}
+
+/* =========================
+   TRAIN CARD
+========================= */
+
+.train-card {
+  display: grid;
+
+  grid-template-columns:
+    1.1fr
+    1.4fr
+    0.9fr;
+
+  align-items: center;
+
+  gap: 25px;
+
+  padding: 24px;
+
+  background: #ffffff;
+
+  border: 1px solid #d4cec3;
+
+  border-radius: 10px;
+
+  box-shadow:
+    0 5px 16px rgba(0, 0, 0, 0.05);
+
+  transition: all 0.2s ease;
+}
+
+.train-card:hover {
+  border-color: #b88935;
+
+  box-shadow:
+    0 8px 22px rgba(0, 0, 0, 0.1);
+}
+
+/* =========================
+   TRAIN INFO
+========================= */
+
+.train-number {
+  display: inline-block;
+
+  margin-bottom: 7px;
+
+  padding: 5px 8px;
+
+  background: #eee9df;
+
+  color: #604713;
+
+  border-radius: 4px;
+
+  font-size: 11px;
+  font-weight: 900;
+}
+
+.train-name h3 {
+  margin-bottom: 7px;
+
+  color: #111111;
+
+  font-size: 18px;
+  font-weight: 900;
+}
+
+.train-type {
+  color: #444444;
+
+  font-size: 12px;
+  font-weight: 800;
+}
+
+/* =========================
+   TIMES
+========================= */
+
+.time-section {
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: 18px;
+}
+
+.time-block {
+  min-width: 80px;
+
+  text-align: center;
+}
+
+.time-block strong {
+  display: block;
+
+  color: #111111;
+
+  font-size: 21px;
+  font-weight: 900;
+}
+
+.time-block span {
+  display: block;
+
+  margin-top: 4px;
+
+  color: #444444;
+
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.route-line {
+  display: flex;
+
+  align-items: center;
+
+  gap: 6px;
+
+  color: #765416;
+
+  font-size: 18px;
+}
+
+.route-line span {
+  width: 25px;
+  height: 2px;
+
+  background: #c7bca9;
+}
+
+/* =========================
+   DETAILS
+========================= */
+
+.train-details {
+  display: flex;
+
+  justify-content: flex-end;
+
+  gap: 20px;
+}
+
+.train-details div {
+  text-align: right;
+}
+
+.train-details span {
+  display: block;
+
+  margin-bottom: 4px;
+
+  color: #555555;
+
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.train-details strong {
+  color: #171717;
+
+  font-size: 14px;
+  font-weight: 900;
+}
+
+/* =========================
+   TABLET
+========================= */
+
+@media (max-width: 950px) {
+
+  .journey-box {
+    grid-template-columns: 1fr;
+  }
+
+  .swap-button {
+    margin: -5px auto;
+  }
+
+  .search-button {
+    width: 100%;
+  }
+
+  .train-card {
+    grid-template-columns: 1fr;
+  }
+
+  .train-details {
+    justify-content: flex-start;
+  }
+
+  .train-details div {
+    text-align: left;
+  }
+
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 600px) {
+
+  .hero-inner {
+    padding: 22px 18px;
+  }
+
+  .brand h1 {
+    font-size: 26px;
+  }
+
+  .brand p {
+    font-size: 12px;
+  }
+
+  .logo {
+    width: 48px;
+    height: 48px;
+
+    font-size: 24px;
+  }
+
+  .main {
+    padding: 38px 16px 60px;
+  }
+
+  .section-heading h2 {
+    font-size: 27px;
+  }
+
+  .section-heading p {
+    line-height: 1.5;
+  }
+
+  .journey-box {
+    padding: 20px;
+  }
+
+  .station-input {
+    height: 58px;
+  }
+
+  .station-input input {
+    font-size: 15px;
+  }
+
+  .dropdown {
+    max-height: 320px;
+  }
+
+  .results-heading {
+    flex-direction: column;
+
+    align-items: flex-start;
+
+    gap: 15px;
+  }
+
+  .time-section {
+    gap: 8px;
+  }
+
+  .time-block strong {
+    font-size: 18px;
+  }
+
+  .route-line span {
+    width: 15px;
+  }
+
+  .train-details {
+    gap: 14px;
+
+    flex-wrap: wrap;
+  }
+
+}
